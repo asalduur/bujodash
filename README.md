@@ -1,2 +1,2 @@
-# bujodash :notebook:
+# :fountain_pen: bujodash
 
