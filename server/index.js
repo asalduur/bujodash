@@ -6,8 +6,8 @@ const session = require('express-session')
 
 // ctrlrs
 const authCtrl = require('./controllers/authCtrl')
-const dailogCtrl = require('./controllers/dailogCtrl')
-const tasconCtrl = require('./controllers/taskIconCtrl')
+// const dailogCtrl = require('./controllers/dailogCtrl')
+// const tasconCtrl = require('./controllers/taskIconCtrl')
 
 // dotenv
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env

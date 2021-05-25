@@ -1,23 +1,22 @@
-drop table if exists icon_entry_junction;
+drop table if exists entry_status;
 drop table if exists daily_log;
-drop table if exists log_icon;
+drop table if exists log_status;
 drop table if exists bujo_users;
 
 --user table
 create table bujo_users (
     user_id serial primary key,
     username varchar (200) not null,
-    hash varchar (200) not null,
-    dp text
+    password varchar (200) not null
 );
 
--- log type table
-create table log_icon (
-    icon_id serial primary key,
-    type_icon text
+-- log status table
+create table log_status (
+    status_id serial primary key,
+    task_status text
 );
 
--- future log table
+-- daily log table
 create table daily_log (
     daily_id serial primary key,
     user_id int references bujo_users(user_id),
@@ -25,10 +24,16 @@ create table daily_log (
     entry varchar(50000)
 );
 
--- icon & entry log junction
-
-create table icon_entry_junction (
-    icon_entry_id serial primary key,
+-- table bridging entries and status tables
+create table entry_status (
+    entry_status_id serial primary key,
     daily_id int references daily_log(daily_id),
-    icon_id int references log_icon(icon_id)
+    status_id int references log_status(status_id)
 );
+
+insert into log_status 
+(task_status)
+values
+('incomplete'),
+('inprogress'),
+('completed');
