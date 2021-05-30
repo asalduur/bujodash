@@ -1,9 +1,9 @@
-import './App.css'
+import routes from './routes'
 
 const App  = () => {
   return (
     <div className="App">
-      
+      {routes}
     </div>
   )
 }

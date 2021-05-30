@@ -42,8 +42,8 @@ massive({
 .catch((err) => console.log(err))
 
 // auth endpoints
-app.get('/auth/register', authCtrl.register)
-app.get('/auth/login', authCtrl.login)
+app.post('/auth/register', authCtrl.register)
+app.post('/auth/login', authCtrl.login)
 app.get('/auth/user', authCtrl.getUser)
 app.get('/auth/logout', authCtrl.logout)
 

@@ -31,9 +31,30 @@ create table entry_status (
     status_id int references log_status(status_id)
 );
 
+-- creating dummy user
+insert into bujo_users
+(username, password)
+values
+('Chuu', 'jiw0099');
+
+-- creating 2 new values for log status
 insert into log_status 
 (task_status)
 values
 ('incomplete'),
-('inprogress'),
-('completed');
+('complete');
+
+-- creating 2 new daily logs, timestamp automatically created with timestamp default now()
+insert into daily_log
+(entry)
+values
+('Devmtn: personal project presentation'),
+('Update resume with new projects');
+
+-- adding values from daily log and log status to junction table
+insert into entry_status 
+(daily_id, status_id) 
+values 
+(1,1);
+select * from entry_status;
+--do i need to specify which user i'm add entries for?

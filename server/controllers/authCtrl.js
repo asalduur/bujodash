@@ -11,8 +11,8 @@ module.exports = {
 
         const salt = bcrypt.genSaltSync()
         const hash = bcrypt.hashSync(password, salt)
-        const [user] = await db.reg_user(username, hash)
-        delete user.password
+        const [user] = await db.auth.reg_user(username, hash)
+        // delete user.password
         req.session.user = user
         return res.status(201).send(req.session.user)
 
@@ -22,17 +22,22 @@ module.exports = {
         const {username, password} = req.body
         const [user] = await db.auth.check_username(username)
         if(!user) {
-            return res.status(403).send('Account does not exist.')
+            return res.status(403).send('Username or password is incorrect.')
         }
         const isAuthenticated = bcrypt.compareSync(password, user.password)
         if(!isAuthenticated){
-            return res
+            return res.status(403).send('Username or password is incorrect.')
         }
+        req.session.user = user
+        return res.status(201).send(req.session.user)
     },
     getUser: (req, res) => {
         if(req.session.user){
             res.status(200).send(req.session.user)
         }
     },
-    logout: (req, res) => {},
+    logout: (req, res) => {
+        req.session.destroy()
+        res.sendStatus(200)
+    }
 }
