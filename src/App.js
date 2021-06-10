@@ -1,4 +1,5 @@
 import routes from './routes'
+import './style/main.scss'
 
 const App  = () => {
   return (

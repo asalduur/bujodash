@@ -1,39 +1,87 @@
-import {useContext, useState} from 'react'
-import {UserContext} from '../context/UserContext'
-import Button from '@material-ui/core/Button'
-import '../App.css'
+import { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
+import { Link } from 'react-router-dom'
+import { useFormik } from 'formik'
+import * as Yup from 'yup'
 
 const Register = () => {
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
   const {handleRegister} = useContext(UserContext)
+  return (
+    <Formik
+      initialValues: {
+        email: '',
+        username: '',
+        password: ''
+      },
+      validateionSchema: Yup.object({
+        email: Yup.string().email('Invalid email address.').required('Required'),
+        username: Yup.string()
+          .max(20, 'Must be 20 characters or less')
+          .required('Required'),
+        password: Yup.string()
+          .max(20, 'Must be 20 characters or less')
+          .required('Required'),
+      }),
+      onSubmit: values => {
+        alert(JSON.stringify(values, null, 2))
+      }
+    })
+  >
+
+
 
   return (
-    <div className="register-container">
+    <form className="form-container" onSubmit={formik.handleSubmit}>
+      <div className="sphere"></div>
+      <div className="sphere-1"></div>
+      <div className="sphere-2"></div>
+      <div className="form">
+      <span className="form-name">Sign up</span>
+      {/* <label htmlFor='Email'>Your Email</label> */}
+      <input 
+        required
+        id='email-required'
+        label='email'
+        type='text'
+        placeholder='Enter Email'
+        {...formik.getFieldProps('email')}
+      />
+      {formik.errors.email && formik.touched.email ? (
+        <span className='error'>{formik.errors.email}</span>
+      ) : null}
       <input 
         required
         id='username-required'
         label='Username'
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
+        type='text'
+        placeholder='Enter username'
+        {...formik.getFieldProps('username')}
       />
+      {formik.errors.username && formik.touched.username ? (
+        <span className='error'>{formik.errors.username}</span>
+      ) : null}
       <input 
         required
         id='password-required'
         label='Password'
         type='password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        placeholder='Enter password'
+        {...formik.getFieldProps('password')}
       />
+      {formik.errors.password && formik.touched.password ? (
+        <span className='error'>{formik.errors.password}</span>
+      ) : null}
 
-      <Button
-        variant='outlined'
-        onClick={() => handleRegister(username, password)}
+      <button
+        className='auth'
+        onClick={() => handleRegister(formik.values.email, formik.values.username, formik.values.password)}
       >
-        Register
-      </Button>
-    </div>
+        Sign up
+      </button>
+      <p>Have an account?<Link to='/'> <button className='btn-links'>Sign in</button></Link></p>
+      </div>
+    </form>
+  )
   )
 }
 

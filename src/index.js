@@ -2,22 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom'
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { DailyProvider } from './context/DailyContext';
+import { MonthlyProvider } from './context/MonthlyContext';
 import {UserProvider} from './context/UserContext'
-import './index.css';
+import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
     <HashRouter>
       <UserProvider>
-        <App />
+        <DailyProvider>
+          <MonthlyProvider>
+            <App />
+          </MonthlyProvider>
+        </DailyProvider>
       </UserProvider>
     </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

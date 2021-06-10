@@ -1,4 +1,4 @@
 insert into bujo_users 
-(username, password)
+(email, username, password)
 values
-($1, $2);
+($1, $2, $3);
