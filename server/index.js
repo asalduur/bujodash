@@ -2,8 +2,10 @@
 require('dotenv').config()
 const express = require('express')
 const massive = require('massive')
-const session = require('express-session')
 const nodemailer = require('nodemailer')
+const session = require('express-session')
+const path = require('path')
+
 
 // ctrlrs
 const authCtrl = require('./controllers/authCtrl')
@@ -87,3 +89,8 @@ app.delete('/daily/:daily_id', dailogCtrl.delDailyLog)
 
 // monthly log endpoints
 app.get('/monthly', monthlyCtrl.getMonthlyLog )
+
+app.use(express.static(__dirname + '/../build'))
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../build/index,html'))
+})
