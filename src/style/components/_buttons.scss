@@ -14,6 +14,7 @@
   @include mixins.btn();
   width: 100px;
   height: 30px;
+  margin-top: 10px;
   font-size: 20px;
 }
 
@@ -28,8 +29,10 @@
   @include mixins.btn();
   background: rgb(85, 87, 119);
   position: relative;
+  right: 15px;
+  top: -5px;
   bottom: 10px;
-  font-size: 14px;
+  font-size: 17px;
   padding: 5px;
   margin: 4px;
 }
@@ -37,7 +40,7 @@
   @include mixins.btn();
   background: rgb(129, 100, 148);
   position: relative;
-  bottom: 10px;
+  top: -5px;
   font-size: 13px;
   padding: 5px;
   margin: 4px;

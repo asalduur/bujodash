@@ -10,7 +10,7 @@ const Dashboard = () => {
         <div className="link"><Link to='/dailylog'>Daily Logs</Link></div>  
       </div>
       <div className="dash">
-        <div className="link"><Link to='/monthylog'>Monthly Logs</Link></div>  
+        <div className="link"><Link to='/monthlylog'>Monthly Logs</Link></div>  
       </div>
     </div>
   )
