@@ -52,7 +52,7 @@ const transporter = nodemailer.createTransport({
 transporter.verify((err, success) => {
   err
     ? console.log(err)
-    : console.log(`=== are we on 10 yet?: ${success} ===`)
+    : console.log(`=== transport is verified: ${success} ===`)
 })
 
 // db connection

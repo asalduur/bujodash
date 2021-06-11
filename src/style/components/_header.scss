@@ -1,0 +1,63 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+@use 'sass:math';
+
+header {
+  @include mixins.set-background(var.$head);
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border: 1px solid rgb(148, 179, 245);
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.25);
+
+  .menu {
+    @include mixins.icon();
+    font-size: 30px;
+  }
+  .logo{
+    font-family: var.$head-font-stack;
+    font-size: 30px;
+    margin: auto 30px;
+    
+    a {
+      text-decoration: none;
+      color: var.$title-color;
+      text-shadow: 0px 4px 4px hsl(202, 47%, 66%);
+      -webkit-text-stroke: 0.2px black;
+    }
+  }
+  
+  .logout {
+    @include mixins.icon();
+    font-size: 30px;
+  }
+  
+  .showMenu {
+    position: absolute;
+    left: 0;
+    top: calc(17.6% - #{math.div(25vh, 2)});
+    background: var.$head;
+    box-shadow: 0 2px 4px hsla(0, 0%, 0%, 0.25);
+    width: 15%;
+    height: 10%;
+    overflow: hidden;
+    transition: all .2s;
+    z-index: 3;
+  }
+  
+  @media (min-width: 411px){
+    .showMenu {
+      width: 30%;
+  
+      &-content {
+        text-align: center;
+      }
+    }
+  }
+  
+  .show {
+    height: 0px;
+  }
+}

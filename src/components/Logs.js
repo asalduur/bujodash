@@ -8,6 +8,7 @@ const Logs = () => {
       <div className="form">
         <div className="daily-nav">
         <span><Link to='/dailylog'>Daily Log</Link> </span><Link to='/new'><MdAdd/></Link>
+        <br/>
         <span><Link to='/monthlylog'>Monthly Log</Link> </span>
         </div>
       </div>

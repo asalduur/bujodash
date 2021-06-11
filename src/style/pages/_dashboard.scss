@@ -1,0 +1,30 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/mixins';
+
+.dash {
+  @include mixins.container();
+  position: relative;
+  left: calc(50% - 350px/2);
+  top: calc(20% - 100px/2);
+  width: 350px;
+  height: 100px;
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(227, 244, 254, 0.72) 0%, rgba(178, 201, 250, 0.72) 100%);
+  backdrop-filter: blur(8px);
+   -webkit-backdrop-filter: blur(5px);
+    
+  .link {
+    font-family: var.$font-stack;
+    font-weight: 900;
+    font-size: 25px;
+  }
+    
+  a {
+    text-decoration: none;
+    color:hsl(0, 0%, 100%);
+    -webkit-text-stroke: 0.2px black;
+  }
+}

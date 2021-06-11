@@ -1,0 +1,44 @@
+@use '../abstracts/variables' as var;
+
+@function set-text-color($color){
+  @if(lightness($color) > 70){
+    @return var.$primary-color;
+  }
+  @return var.$secondary-color;
+  
+}
+
+@mixin set-background($color){
+  background: $color;
+  color: set-text-color($color)
+}
+
+@mixin btn () {
+  background: var.$btn-grad;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  border-radius: 33px;
+  font-family: 'Nunito';
+  font-weight: 900;
+  color: var.$btn-color;
+  -webkit-text-stroke: 0.2px black;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+@mixin container () {
+  background: var.$container-grad;
+  border-radius: 30px;
+}
+
+@mixin float-obj(){
+  position: absolute;
+  background: var.$spheres-grad;
+  border-radius: 50%;
+}
+
+@mixin icon() {
+  color: rgb(101, 102, 118);
+}

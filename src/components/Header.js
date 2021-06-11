@@ -11,8 +11,6 @@ const Header = () => {
 
   const handleMenuToggle = () => setShowMenu(!showMenu)
   
-
-  // console.log(showMenu)
   return (
     <header>
       <MdDehaze 

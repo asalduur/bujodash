@@ -20,28 +20,26 @@ const EditEntry = (props) => {
   }
   return (
     <div className="log-entry" key={log.daily_id}>
-            <div className="entry">
-              {
-              !editStatus 
-              ? 
-              <MdCheckBoxOutlineBlank className='icon-log' onClick={() => setEditStatus(!editStatus)}/>
-              : 
-              <MdCheckBox className='icon-log' onClick={() => setEditStatus(!editStatus)}/> 
-              }
-              {
-              showEdit ? (
-                <input value={editEntry} onChange={(e) => setEditEntry(e.target.value)}/>
-              ) : (
-                <span>{log.entry}</span>
-              ) 
-              }
-              
-              <span className="date-created"> {new Date(log.time_stamp).toLocaleDateString()}</span>
-              <MdClear className='icon-log' onClick={() => handleDeleteDaily(log.daily_id)}/> 
-              <MdCreate className='icon-log edit' onClick={() => setShowEdit(!showEdit)} />
-              <button className='save' onClick={handleSave}>Save</button>
-            </div>
-          </div>
+      <span className="date-created"> {new Date(log.time_stamp).toLocaleDateString()}</span>
+      <div className="entry">
+        {
+        !editStatus 
+        ? 
+        <MdCheckBoxOutlineBlank className='icon-log' onClick={() => setEditStatus(!editStatus)}/>
+        : 
+        <MdCheckBox className='icon-log' onClick={() => setEditStatus(!editStatus)}/> 
+        }
+        {showEdit ? (
+          <input value={editEntry} onChange={(e) => setEditEntry(e.target.value)}/>
+        ) : (
+          <span>{log.entry}</span>
+        ) 
+        }
+      </div>
+        <MdClear className='icon-log-btn'onClick={() => handleDeleteDaily(log.daily_id)}/>
+        <MdCreate className='icon-log-btn'onClick={() => setShowEdit(!showEdit)}/>
+        <button className='save' onClick={handleSave}>Save</button>
+    </div>
   )
 }
 

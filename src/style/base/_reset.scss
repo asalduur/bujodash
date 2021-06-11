@@ -1,0 +1,15 @@
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../assets/bg.jpg');
+  background-blend-mode: screen;
+  mix-blend-mode: normal;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

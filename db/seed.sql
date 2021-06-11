@@ -18,9 +18,9 @@ create table daily_log (
     status boolean
 );
 
--- log will keep track of month & year
+-- tasks in daily join here
 create table monthly_log (
   monthly_id serial primary key,
-  daily_id int references daily_log(daily_id),
+  daily_id int references daily_log(daily_id) on delete cascade,
   log_date timestamp default current_date
 );

@@ -21,7 +21,7 @@ const DailyLog = () => {
     <div className='log'>
       <Header/>
       <h3>Daily Logs</h3>
-      <span className="add">Add to log <Link to='/new'><FaPlus/></Link></span>
+      <button className="add"><Link to='/new'><FaPlus/></Link></button>
       {dailyLog.map(log => {
         return (
           <EditEntry log={log}/>
@@ -30,17 +30,5 @@ const DailyLog = () => {
     </div>
   )
 }
-
-//  ^ <> ^ todos:
-  // bugs
-//!! all logged in users get the same logs, problem with queries?
-
-// additional tech
-// sass (using variables, mixins, nesting) --> fix files
-// nodemailer: add email to bujo_user table
-
-  // post mvp
-// ! error handling on login/register (alerts windows?)
-
 
 export default DailyLog

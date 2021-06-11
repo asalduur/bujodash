@@ -26,7 +26,6 @@ const MonthlyLog = () => {
           </div>
         )
       })}
-  {/* <h6>{new Date(log.log_date).getMonth()+1}</h6> */}
     </div>
   )
 }

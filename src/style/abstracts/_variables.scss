@@ -1,0 +1,42 @@
+// ** words
+/// @type Regular
+$font-stack: 'Nunito', sans-serif !default;
+
+/// @type Header
+$head-font-stack: 'Nova Oval', sans-serif !default;
+ 
+/// @type Color
+$primary-color: hsl(252, 68%, 11%) !default;
+
+/// @type Color
+$secondary-color: hsl(250, 65%, 84%) !default;
+
+/// @type Color
+$link-color: hsl(252, 83%, 55%) !default;
+
+/// @type Color
+$btn-color: hsl(0, 0%, 100%) !default;
+
+
+/// @type Color
+$heading-color: hsl(236, 12%, 18%) !default;
+
+/// @type Color
+$title-color: hsl(0, 0%, 100%) !default;
+
+/// ** gradients
+/// @type Background 
+$container-grad: linear-gradient(180deg, hsla(0, 0%, 100%, 0.34) 0%, hsla(0, 0%, 100%, 0.2) 100%);
+
+/// @type Background 
+$spheres-grad: linear-gradient(135deg, hsla(201, 91%, 86%, 1) 0%, hsla(221, 89%, 82%, 1) 56.15%, hsla(252, 100%, 79%, 1) 96.25%);
+
+/// @type Background 
+$btn-grad: linear-gradient(97.58deg, hsla(201, 39%, 93%, 1) 0%, hsla(221, 58%, 87%, 1) 45%, hsla(252, 66%, 88%, 1) 99.69%);
+
+/// @type Background 
+$dash-grad: linear-gradient(180deg, hsla(201, 93%, 94%, 0.72) 0%, hsla(221, 88%, 84%, 0.72) 100%);
+
+/// ** reg
+/// @type Background
+$head: rgb(203, 215, 241);
