@@ -34,9 +34,11 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   cookie: {
-      maxAge: 1000 * 60 * 60 * 24
+    maxAge: 1000 * 60 * 60 * 24
   }
 }))
+
+app.use(express.static(__dirname + '/../build'))
 
 // set up transporter obj
 const transporter = nodemailer.createTransport({
@@ -76,21 +78,20 @@ massive({
 
 
 // auth endpoints
-app.post('/auth/register', authCtrl.register)
-app.post('/auth/login', authCtrl.login)
-app.get('/auth/user', authCtrl.getUser)
-app.get('/auth/logout', authCtrl.logout)
+app.post('/api/auth/register', authCtrl.register)
+app.post('/api/auth/login', authCtrl.login)
+app.get('/api/auth/user', authCtrl.getUser)
+app.get('/api/auth/logout', authCtrl.logout)
 
 // daily log endpoints
-app.get('/daily/', dailogCtrl.getDailyLog)
-app.post('/daily', dailogCtrl.addDailyLog)
-app.put('/daily/:daily_id', dailogCtrl.updateDailyLog)
-app.delete('/daily/:daily_id', dailogCtrl.delDailyLog)
+app.get('/api/daily/', dailogCtrl.getDailyLog)
+app.post('/api/daily', dailogCtrl.addDailyLog)
+app.put('/api/daily/:daily_id', dailogCtrl.updateDailyLog)
+app.delete('/api/daily/:daily_id', dailogCtrl.delDailyLog)
 
 // monthly log endpoints
-app.get('/monthly', monthlyCtrl.getMonthlyLog )
+app.get('/api/monthly', monthlyCtrl.getMonthlyLog )
 
-app.use(express.static(__dirname + '/../build'))
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../build/index.html'))
 })

@@ -12,7 +12,7 @@ export const DailyProvider = (props) => {
 
   const handleDailyLog = useCallback( () => {
     axios
-      .get('/daily')
+      .get('/api/daily')
       .then((res) => {
         setDailyLog(res.data)
       })
@@ -21,7 +21,7 @@ export const DailyProvider = (props) => {
 
   const handleCreateDaily = (entry) => {
     axios
-      .post('/daily', {entry})
+      .post('/api/daily', {entry})
       .then((res) => {
         successMsg('You have logged a new task.')
         history.push('/dailylog')
@@ -35,7 +35,7 @@ export const DailyProvider = (props) => {
     
     const handleEditDaily = (daily_id, entry, status) => {
       axios
-      .put(`/daily/${daily_id}`, {entry, status})
+      .put(`/api/daily/${daily_id}`, {entry, status})
       .then((res) => {
         successMsg('Changes to task saved.')
         setDailyLog(res.data)
@@ -48,7 +48,7 @@ export const DailyProvider = (props) => {
     
     const handleDeleteDaily = (daily_id) => {
       axios
-      .delete(`/daily/${daily_id}`)
+      .delete(`/api/daily/${daily_id}`)
       .then((res) => {
         setDailyLog(res.data)
         successMsg('Task has been deleted.')

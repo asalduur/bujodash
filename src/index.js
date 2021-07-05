@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import App from './App';
 import { DailyProvider } from './context/DailyContext';
 import { MonthlyProvider } from './context/MonthlyContext';
@@ -9,7 +9,7 @@ import './index.scss';
 
 ReactDOM.render(
   <React.StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <UserProvider>
         <DailyProvider>
           <MonthlyProvider>
@@ -17,7 +17,7 @@ ReactDOM.render(
           </MonthlyProvider>
         </DailyProvider>
       </UserProvider>
-    </HashRouter>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -12,7 +12,7 @@ export const UserProvider = (props) => {
   
   const handleRegister = (email, username, password) => {
     axios
-      .post('/auth/register', {email, username, password})
+      .post('/api/auth/register', {email, username, password})
       .then((res) => {
         setUser(res.data)
         history.push('/dashboard')
@@ -26,7 +26,7 @@ export const UserProvider = (props) => {
 
   const handleLogin = (username, password) => {
     axios
-      .post('/auth/login', {username, password})
+      .post('/api/auth/login', {username, password})
       .then((res) => {
         setUser(res.data)
         history.push('/dashboard')
@@ -40,7 +40,7 @@ export const UserProvider = (props) => {
 
   const handleLogout = () => {
     axios
-      .get('auth/logout')
+      .get('/api/auth/logout')
       setUser(null)
       history.push('/')
   }

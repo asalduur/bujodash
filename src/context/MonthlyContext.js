@@ -8,7 +8,7 @@ export const MonthlyProvider = (props) => {
 
   const handleMonthlyLog = useCallback( () => {
     axios
-      .get('/monthly')
+      .get('/api/monthly')
       .then((res) => {
         setMonthlyLog(res.data)
       })
