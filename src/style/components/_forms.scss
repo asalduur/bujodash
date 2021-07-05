@@ -8,6 +8,7 @@
   top: calc(50% - 90%/2);
   width: 80%;
   height: 90%;
+  z-index: -1;
 
   .sphere {
     @include mixins.float-obj();

@@ -42,7 +42,7 @@ app.use(session({
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    type: 'OAuth2',
+    // type: 'OAuth2',
     user: EMAIL,
     pass: WORD,
     clientId: OAUTH_CLIENTID,
